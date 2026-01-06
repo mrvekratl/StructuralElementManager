@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StructuralElementManager.BusinessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+abcb0000e3178e3f455e9a2e79045b5dda36632e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e122ca02b11fa8b48a012cd8d4d1bc9d42bc3241")]
 [assembly: System.Reflection.AssemblyProductAttribute("StructuralElementManager.BusinessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StructuralElementManager.BusinessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,54 +1,12 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{C65A75F9-89E3-4425-B475-B0A305399EE1}|StructuralElementManager.DataAccessLayer\\StructuralElementManager.DataAccessLayer.csproj|c:\\users\\monster\\desktop\\github\\structuralelementmanager\\structuralelementmanager.dataaccesslayer\\concrete\\context\\structuralcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C65A75F9-89E3-4425-B475-B0A305399EE1}|StructuralElementManager.DataAccessLayer\\StructuralElementManager.DataAccessLayer.csproj|solutionrelative:structuralelementmanager.dataaccesslayer\\concrete\\context\\structuralcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": [
-        {
-          "DockedHeight": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "StructuralContext.cs",
-              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.DataAccessLayer\\Concrete\\Context\\StructuralContext.cs",
-              "RelativeDocumentMoniker": "StructuralElementManager.DataAccessLayer\\Concrete\\Context\\StructuralContext.cs",
-              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.DataAccessLayer\\Concrete\\Context\\StructuralContext.cs",
-              "RelativeToolTip": "StructuralElementManager.DataAccessLayer\\Concrete\\Context\\StructuralContext.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAAABEAAABKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:57:08.524Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "20260104194627_InitialCreate.cs",
-              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs",
-              "RelativeDocumentMoniker": "StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs",
-              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs",
-              "RelativeToolTip": "StructuralElementManager.DataAccessLayer\\Migrations\\20260104194627_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-04T19:46:27.498Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
+      "DocumentGroups": []
     }
   ]
 }

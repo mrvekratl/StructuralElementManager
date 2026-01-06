@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -19,6 +20,13 @@
     <ProjectReference Include="..\StructuralElementManager.BusinessLayer\StructuralElementManager.BusinessLayer.csproj" />
     <ProjectReference Include="..\StructuralElementManager.DtoLayer\StructuralElementManager.DtoLayer.csproj" />
     <ProjectReference Include="..\StructuralElementManager.EntityLayer\StructuralElementManager.EntityLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Helpers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>

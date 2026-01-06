@@ -15,3 +15,4 @@ C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManage
 C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.BusinessLayer\obj\Debug\net8.0\refint\StructuralElementManager.BusinessLayer.dll
 C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.BusinessLayer\obj\Debug\net8.0\StructuralElementManager.BusinessLayer.pdb
 C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.BusinessLayer\obj\Debug\net8.0\ref\StructuralElementManager.BusinessLayer.dll
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.BusinessLayer\obj\Debug\net8.0\StructuralElementManager.BusinessLayer.sourcelink.json
