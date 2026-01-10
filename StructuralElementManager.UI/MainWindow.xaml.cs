@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using StructuralElementManager.UI.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,11 +20,7 @@ namespace StructuralElementManager.UI
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = new MainViewModel();
         }
     }
 }

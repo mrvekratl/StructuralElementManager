@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StructuralElementManager.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e122ca02b11fa8b48a012cd8d4d1bc9d42bc3241")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+07ec6c9e1ec530ced9ede0c80eea25417859b6f8")]
 [assembly: System.Reflection.AssemblyProductAttribute("StructuralElementManager.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StructuralElementManager.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,140 +1,308 @@
 ﻿<Window x:Class="StructuralElementManager.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:viewmodels="clr-namespace:StructuralElementManager.UI.ViewModels"
-        Title="Structural Element Manager" 
-        Height="600" Width="1000"
+        Title="Structural Element Manager - Prota Software" 
+        Height="750" Width="1400"
         WindowStartupLocation="CenterScreen"
         Background="#F5F5F5">
 
-    <!-- ViewModel'i bağla -->
-    <Window.DataContext>
-        <viewmodels:MainViewModel/>
-    </Window.DataContext>
-
-    <!-- Ana Layout -->
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <!-- Toolbar -->
-            <RowDefinition Height="*"/>
-            <!-- Content -->
-            <RowDefinition Height="Auto"/>
-            <!-- Status Bar -->
-        </Grid.RowDefinitions>
-
+    <DockPanel>
         <!-- TOP: TOOLBAR -->
-        <ToolBar Grid.Row="0" Padding="10" Background="#2C3E50">
-            <Button Content="➕ Add Test Column" 
-                    Command="{Binding AddTestColumnCommand}"
-                    Background="#27AE60" 
-                    Foreground="White"
-                    Padding="10,5"
-                    Margin="5,0" Click="Button_Click"/>
+        <ToolBarTray DockPanel.Dock="Top" Background="#2C3E50">
+            <ToolBar>
+                <Label Content="Structure" Foreground="White" FontWeight="Bold" Margin="10,0"/>
+                <Separator/>
 
-            <Button Content="🗑️ Delete Selected" 
-                    Command="{Binding DeleteColumnCommand}"
-                    Background="#E74C3C" 
-                    Foreground="White"
-                    Padding="10,5"
-                    Margin="5,0"/>
+                <Button Content="➕ Add Column" 
+                        Command="{Binding AddColumnCommand}"
+                        Background="#27AE60" 
+                        Foreground="White"
+                        Padding="15,8"
+                        Margin="5,0"/>
 
-            <Separator/>
+                <Button Content="✏️ Update" 
+                        Command="{Binding UpdateElementCommand}"
+                        Background="#3498DB" 
+                        Foreground="White"
+                        Padding="15,8"
+                        Margin="5,0"/>
 
-            <Button Content="🔄 Refresh" 
-                    Command="{Binding RefreshDataCommand}"
-                    Background="#3498DB" 
-                    Foreground="White"
-                    Padding="10,5"
-                    Margin="5,0"/>
-        </ToolBar>
+                <Button Content="🗑️ Delete" 
+                        Command="{Binding DeleteElementCommand}"
+                        Background="#E74C3C" 
+                        Foreground="White"
+                        Padding="15,8"
+                        Margin="5,0"/>
 
-        <!-- MIDDLE: CONTENT -->
-        <Grid Grid.Row="1" Margin="10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+                <Separator/>
 
-            <!-- LEFT: COLUMN LIST -->
-            <Border Grid.Column="0" 
-                    BorderBrush="#BDC3C7" 
-                    BorderThickness="1"
-                    Background="White"
-                    Margin="0,0,5,0">
-                <DockPanel>
-                    <TextBlock DockPanel.Dock="Top" 
-                               Text="Structural Columns" 
-                               FontSize="16" 
-                               FontWeight="Bold"
-                               Padding="10"
-                               Background="#34495E"
-                               Foreground="White"/>
+                <Label Content="Floor:" Foreground="White" Margin="10,0,5,0"/>
+                <TextBox Text="{Binding CurrentFloor, UpdateSourceTrigger=PropertyChanged}" 
+                         Width="50" 
+                         VerticalContentAlignment="Center"
+                         Margin="0,0,10,0"/>
 
-                    <DataGrid ItemsSource="{Binding Columns}"
-                              SelectedItem="{Binding SelectedColumn}"
-                              AutoGenerateColumns="False"
-                              CanUserAddRows="False"
-                              GridLinesVisibility="Horizontal"
-                              AlternatingRowBackground="#ECF0F1">
+                <Separator/>
 
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="Name" 
-                                                Binding="{Binding Name}" 
-                                                Width="*"/>
-
-                            <DataGridTextColumn Header="Width" 
-                                                Binding="{Binding Width}" 
-                                                Width="*"/>
-
-                            <DataGridTextColumn Header="Height" 
-                                                Binding="{Binding Height}" 
-                                                Width="*"/>
-
-                            <DataGridTextColumn Header="Floor" 
-                                                Binding="{Binding FloorLevel}" 
-                                                Width="*"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
-                </DockPanel>
-            </Border>
-
-            <!-- RIGHT: DETAILS -->
-            <Border Grid.Column="1" 
-                    BorderBrush="#BDC3C7" 
-                    BorderThickness="1"
-                    Background="White"
-                    Margin="5,0,0,0">
-                <StackPanel Margin="15">
-                    <TextBlock Text="Column Details" 
-                               FontSize="16" 
-                               FontWeight="Bold"
-                               Margin="0,0,0,20"/>
-
-                    <TextBlock Text="Name:" FontWeight="Bold"/>
-                    <TextBlock Text="{Binding SelectedColumn.Name, FallbackValue='No selection'}" 
-                               Margin="0,0,0,10"/>
-
-                    <TextBlock Text="Dimensions:" FontWeight="Bold"/>
-                    <TextBlock Margin="0,5">
-                        <Run Text="Width: "/>
-                        <Run Text="{Binding SelectedColumn.Width, FallbackValue='--'}"/>
-                        <Run Text=" cm"/>
-                    </TextBlock>
-                    <TextBlock Margin="0,5">
-                        <Run Text="Height: "/>
-                        <Run Text="{Binding SelectedColumn.Height, FallbackValue='--'}"/>
-                        <Run Text=" cm"/>
-                    </TextBlock>
-                </StackPanel>
-            </Border>
-        </Grid>
+                <Button Content="🔄 Refresh" 
+                        Command="{Binding RefreshDataCommand}"
+                        Background="#95A5A6" 
+                        Foreground="White"
+                        Padding="15,8"
+                        Margin="5,0"/>
+            </ToolBar>
+        </ToolBarTray>
 
         <!-- BOTTOM: STATUS BAR -->
-        <StatusBar Grid.Row="2" Background="#34495E">
+        <StatusBar DockPanel.Dock="Bottom" Background="#34495E" Padding="10,5">
             <StatusBarItem>
                 <TextBlock Text="{Binding StatusText}" Foreground="White"/>
             </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Foreground="White">
+                    <Run Text="Total Elements: "/>
+                    <Run Text="{Binding TotalElementCount}" FontWeight="Bold"/>
+                </TextBlock>
+            </StatusBarItem>
+            <Separator/>
+            <StatusBarItem>
+                <TextBlock Foreground="White">
+                    <Run Text="Total Volume: "/>
+                    <Run Text="{Binding TotalVolume, StringFormat=F2}" FontWeight="Bold"/>
+                    <Run Text=" m³"/>
+                </TextBlock>
+            </StatusBarItem>
         </StatusBar>
-    </Grid>
+
+        <!-- MAIN CONTENT: 3-COLUMN LAYOUT -->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="380"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- LEFT: PROJECT BROWSER -->
+            <Border Grid.Column="0" 
+                    BorderBrush="#BDC3C7" 
+                    BorderThickness="0,0,1,0"
+                    Background="White">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" 
+                               Text="📋 Project Browser" 
+                               FontSize="14" 
+                               FontWeight="Bold"
+                               Padding="15,12"
+                               Background="#34495E"
+                               Foreground="White"/>
+
+                    <TreeView ItemsSource="{Binding FloorLevels}"
+                              BorderThickness="0"
+                              Padding="5">
+                        <TreeView.ItemContainerStyle>
+                            <Style TargetType="TreeViewItem">
+                                <Setter Property="IsExpanded" Value="True"/>
+                                <Setter Property="Padding" Value="5"/>
+                            </Style>
+                        </TreeView.ItemContainerStyle>
+
+                        <TreeView.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding Elements}">
+                                <!-- Floor Level -->
+                                <StackPanel Orientation="Horizontal" Margin="0,5">
+                                    <TextBlock Text="{Binding DisplayName}" 
+                                               FontWeight="Bold" 
+                                               FontSize="13"
+                                               Foreground="#2C3E50"/>
+                                    <TextBlock Text="{Binding Elements.Count, StringFormat=' ({0})'}" 
+                                               Foreground="#7F8C8D"
+                                               Margin="5,0"/>
+                                </StackPanel>
+
+                                <!-- Elements -->
+                                <HierarchicalDataTemplate.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal" Margin="5,3">
+                                            <TextBlock Text="{Binding DisplayName}" FontSize="12"/>
+                                            <TextBlock Text="{Binding Element.Height, StringFormat=' (H:{0}cm)'}" 
+                                                       Foreground="#95A5A6"
+                                                       FontSize="11"
+                                                       Margin="5,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </HierarchicalDataTemplate.ItemTemplate>
+                            </HierarchicalDataTemplate>
+                        </TreeView.ItemTemplate>
+                    </TreeView>
+                </DockPanel>
+            </Border>
+
+            <!-- MIDDLE: PROPERTIES PANEL -->
+            <Border Grid.Column="1" 
+                    BorderBrush="#BDC3C7" 
+                    BorderThickness="0,0,1,0"
+                    Background="White">
+                <DockPanel>
+                    <TextBlock DockPanel.Dock="Top" 
+                               Text="⚙️ Properties" 
+                               FontSize="14" 
+                               FontWeight="Bold"
+                               Padding="15,12"
+                               Background="#34495E"
+                               Foreground="White"/>
+
+                    <StackPanel DockPanel.Dock="Bottom" 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Center"
+                                Margin="15">
+                        <Button Content="✓ Update" 
+                                Command="{Binding UpdateElementCommand}"
+                                Width="120" Height="35"
+                                Background="#27AE60" 
+                                Foreground="White"
+                                FontWeight="Bold"
+                                Margin="5"/>
+                        <Button Content="✕ Delete" 
+                                Command="{Binding DeleteElementCommand}"
+                                Width="120" Height="35"
+                                Background="#E74C3C" 
+                                Foreground="White"
+                                FontWeight="Bold"
+                                Margin="5"/>
+                    </StackPanel>
+
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="15">
+                        <StackPanel>
+                            <!-- Element Info -->
+                            <GroupBox Header="Element Information" Margin="0,0,0,15">
+                                <StackPanel Margin="10">
+                                    <TextBlock Text="Type:" FontWeight="Bold" Margin="0,5,0,2"/>
+                                    <TextBlock Text="{Binding SelectedElement.ElementType, FallbackValue='No selection'}" 
+                                               Foreground="#2980B9"
+                                               Margin="0,0,0,10"/>
+
+                                    <TextBlock Text="Name:" FontWeight="Bold" Margin="0,5,0,2"/>
+                                    <TextBox Text="{Binding SelectedElement.Name, UpdateSourceTrigger=PropertyChanged}"
+                                             Padding="5"/>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <!-- Dimensions -->
+                            <GroupBox Header="Dimensions" Margin="0,0,0,15">
+                                <Grid Margin="10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Width:" VerticalAlignment="Center" Margin="0,5"/>
+                                    <TextBox Grid.Row="0" Grid.Column="1" 
+                                             Text="{Binding SelectedElement.Width, UpdateSourceTrigger=PropertyChanged}" 
+                                             Margin="10,5" Padding="5"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="2" Text="cm" VerticalAlignment="Center" Margin="5"/>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Depth:" VerticalAlignment="Center" Margin="0,5"/>
+                                    <TextBox Grid.Row="1" Grid.Column="1" 
+                                             Text="{Binding SelectedElement.Depth, UpdateSourceTrigger=PropertyChanged}" 
+                                             Margin="10,5" Padding="5"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="cm" VerticalAlignment="Center" Margin="5"/>
+
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Height:" VerticalAlignment="Center" Margin="0,5"/>
+                                    <TextBox Grid.Row="2" Grid.Column="1" 
+                                             Text="{Binding SelectedElement.Height, UpdateSourceTrigger=PropertyChanged}" 
+                                             Margin="10,5" Padding="5"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Text="cm" VerticalAlignment="Center" Margin="5"/>
+
+                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Floor:" VerticalAlignment="Center" Margin="0,5"/>
+                                    <TextBox Grid.Row="3" Grid.Column="1" 
+                                             Text="{Binding SelectedElement.FloorLevel, UpdateSourceTrigger=PropertyChanged}" 
+                                             Margin="10,5" Padding="5"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="2" Text="level" VerticalAlignment="Center" Margin="5"/>
+                                </Grid>
+                            </GroupBox>
+
+                            <!-- Material -->
+                            <GroupBox Header="Material" Margin="0,0,0,15">
+                                <ComboBox ItemsSource="{Binding Materials}"
+                                          SelectedValue="{Binding SelectedElement.MaterialId}"
+                                          SelectedValuePath="MaterialId"
+                                          DisplayMemberPath="MaterialName"
+                                          Margin="10"
+                                          Padding="5"/>
+                            </GroupBox>
+
+                            <!-- Calculated Values GroupBox'ı bul ve değiştir -->
+                            <GroupBox Header="📊 Calculated Values" Background="#F8F9FA" Margin="0,0,0,15">
+                                <StackPanel Margin="10">
+                                    <TextBlock Margin="0,5">
+            <Run Text="Volume: " FontWeight="Bold"/>
+            <Run Text="--" FontWeight="Bold" Foreground="#2980B9" FontSize="14"/>
+            <Run Text=" m³"/>
+                                    </TextBlock>
+
+                                    <TextBlock Margin="0,5">
+            <Run Text="Weight: " FontWeight="Bold"/>
+            <Run Text="--" FontWeight="Bold" Foreground="#2980B9" FontSize="14"/>
+            <Run Text=" tons"/>
+                                    </TextBlock>
+
+                                    <TextBlock Text="(Select an element to see calculations)" 
+                   FontSize="10" 
+                   FontStyle="Italic" 
+                   Foreground="#95A5A6"
+                   Margin="0,5,0,0"/>
+                                </StackPanel>
+                            </GroupBox>
+
+                            <!-- Help -->
+                            <Border Background="#E8F4F8" Padding="12" CornerRadius="5" Margin="0,20,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="💡 Tip" 
+                                               FontWeight="Bold"
+                                               Foreground="#2980B9"
+                                               Margin="0,0,0,5"/>
+                                    <TextBlock Text="Select an element from the Project Browser to view and edit its properties." 
+                                               TextWrapping="Wrap"
+                                               Foreground="#5DADE2"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+
+            <!-- RIGHT: CANVAS -->
+            <Border Grid.Column="2" Background="#2C3E50">
+                <DockPanel>
+                    <Border DockPanel.Dock="Top" 
+                            Background="#34495E"
+                            Padding="15,12">
+                        <TextBlock Foreground="White" FontWeight="Bold" FontSize="14">
+                            <Run Text="🗺️ Plan View - Floor "/>
+                            <Run Text="{Binding CurrentFloor}"/>
+                        </TextBlock>
+                    </Border>
+
+                    <Grid Background="White" Margin="20">
+                        <Canvas x:Name="PlanCanvas" ClipToBounds="True"/>
+
+                        <TextBlock Text="2D visualization will be rendered here" 
+                                   HorizontalAlignment="Center" 
+                                   VerticalAlignment="Center"
+                                   Foreground="#BDC3C7"
+                                   FontSize="16"
+                                   FontStyle="Italic"/>
+                    </Grid>
+                </DockPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
 </Window>

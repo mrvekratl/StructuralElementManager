@@ -1,12 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F133BBB4-71FB-4B74-864D-00AF141506FC}|StructuralElementManager.UI\\StructuralElementManager.UI.csproj|c:\\users\\monster\\desktop\\github\\structuralelementmanager\\structuralelementmanager.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{F133BBB4-71FB-4B74-864D-00AF141506FC}|StructuralElementManager.UI\\StructuralElementManager.UI.csproj|solutionrelative:structuralelementmanager.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.UI\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "StructuralElementManager.UI\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.UI\\MainWindow.xaml",
+              "RelativeToolTip": "StructuralElementManager.UI\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-01-10T10:46:46.066Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
