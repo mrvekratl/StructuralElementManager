@@ -1,0 +1,12 @@
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\bin\Debug\net8.0\StructuralElementManager.EntityLayer.deps.json
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\bin\Debug\net8.0\StructuralElementManager.EntityLayer.dll
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\bin\Debug\net8.0\StructuralElementManager.EntityLayer.pdb
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.AssemblyInfoInputs.cache
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.AssemblyInfo.cs
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.csproj.CoreCompileInputs.cache
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.sourcelink.json
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.dll
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\refint\StructuralElementManager.EntityLayer.dll
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\StructuralElementManager.EntityLayer.pdb
+C:\Users\Monster\Desktop\Github\StructuralElementManager\StructuralElementManager.EntityLayer\obj\Debug\net8.0\ref\StructuralElementManager.EntityLayer.dll

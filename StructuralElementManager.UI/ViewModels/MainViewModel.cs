@@ -134,6 +134,118 @@ namespace StructuralElementManager.UI.ViewModels
                 StatusText = $"Error adding column: {ex.Message}";
             }
         }
+        [RelayCommand]
+        private void AddBeam()
+        {
+            try
+            {
+                var beamService = new StructuralBeamManager(new EfBeamDal());
+
+                var newBeam = new StructuralBeam
+                {
+                    Name = $"B{GetNextBeamNumber()}",
+                    Width = 30,
+                    Height = 50,
+                    Length = 600,
+                    FloorLevel = CurrentFloor,
+                    MaterialID = Materials.FirstOrDefault()?.MaterialId ?? 1
+                };
+
+                beamService.TAdd(newBeam);
+
+                var floor = FloorLevels.FirstOrDefault(f => f.FloorNumber == CurrentFloor);
+                if (floor == null)
+                {
+                    floor = new FloorLevelModel { FloorNumber = CurrentFloor };
+                    FloorLevels.Add(floor);
+                }
+
+                floor.Elements.Add(new ElementTreeItemModel(newBeam));
+
+                UpdateStatistics();
+                StatusText = $"Added beam: {newBeam.Name} on Floor {CurrentFloor}";
+            }
+            catch (Exception ex)
+            {
+                StatusText = $"Error adding beam: {ex.Message}";
+            }
+        }
+
+        [RelayCommand]
+        private void AddSlab()
+        {
+            try
+            {
+                var slabService = new StructuralSlabManager(new EfSlabDal());
+
+                var newSlab = new StructuralSlab
+                {
+                    Name = $"S{GetNextSlabNumber()}",
+                    Length = 500,
+                    Width = 400,
+                    Thickness = 20,
+                    FloorLevel = CurrentFloor,
+                    MaterialID = Materials.FirstOrDefault()?.MaterialId ?? 1
+                };
+
+                slabService.TAdd(newSlab);
+
+                var floor = FloorLevels.FirstOrDefault(f => f.FloorNumber == CurrentFloor);
+                if (floor == null)
+                {
+                    floor = new FloorLevelModel { FloorNumber = CurrentFloor };
+                    FloorLevels.Add(floor);
+                }
+
+                floor.Elements.Add(new ElementTreeItemModel(newSlab));
+
+                UpdateStatistics();
+                StatusText = $"Added slab: {newSlab.Name} on Floor {CurrentFloor}";
+            }
+            catch (Exception ex)
+            {
+                StatusText = $"Error adding slab: {ex.Message}";
+            }
+        }
+
+        // Helper metodlar
+        private int GetNextBeamNumber()
+        {
+            var allBeams = FloorLevels.SelectMany(f => f.Elements)
+                .Where(e => e.Element is StructuralBeam)
+                .Select(e => e.Element.Name)
+                .ToList();
+
+            int maxNumber = 0;
+            foreach (var name in allBeams)
+            {
+                if (name.StartsWith("B") && int.TryParse(name.Substring(1), out int num))
+                {
+                    if (num > maxNumber) maxNumber = num;
+                }
+            }
+
+            return maxNumber + 1;
+        }
+
+        private int GetNextSlabNumber()
+        {
+            var allSlabs = FloorLevels.SelectMany(f => f.Elements)
+                .Where(e => e.Element is StructuralSlab)
+                .Select(e => e.Element.Name)
+                .ToList();
+
+            int maxNumber = 0;
+            foreach (var name in allSlabs)
+            {
+                if (name.StartsWith("S") && int.TryParse(name.Substring(1), out int num))
+                {
+                    if (num > maxNumber) maxNumber = num;
+                }
+            }
+
+            return maxNumber + 1;
+        }
 
         [RelayCommand]
         private void DeleteElement()
@@ -149,10 +261,20 @@ namespace StructuralElementManager.UI.ViewModels
                 var element = SelectedTreeItem.Element;
                 var elementName = element.Name;
 
-                // Database'den sil
+                // Database'den sil (tip kontrolü)
                 if (element is StructuralColumn column)
                 {
                     _columnService.TDelete(column);
+                }
+                else if (element is StructuralBeam beam)
+                {
+                    var beamService = new StructuralBeamManager(new EfBeamDal());
+                    beamService.TDelete(beam);
+                }
+                else if (element is StructuralSlab slab)
+                {
+                    var slabService = new StructuralSlabManager(new EfSlabDal());
+                    slabService.TDelete(slab);
                 }
 
                 // Tree view'den kaldır
@@ -172,7 +294,6 @@ namespace StructuralElementManager.UI.ViewModels
                 StatusText = $"Error deleting element: {ex.Message}";
             }
         }
-
         [RelayCommand]
         private void UpdateElement()
         {
@@ -188,6 +309,20 @@ namespace StructuralElementManager.UI.ViewModels
                 {
                     _columnService.TUpdate(column);
                 }
+                else if (SelectedElement is StructuralBeam beam)
+                {
+                    var beamService = new StructuralBeamManager(new EfBeamDal());
+                    beamService.TUpdate(beam);
+                }
+                else if (SelectedElement is StructuralSlab slab)
+                {
+                    var slabService = new StructuralSlabManager(new EfSlabDal());
+                    slabService.TUpdate(slab);
+                }
+
+                // Calculated values'ı yenile
+                OnPropertyChanged(nameof(SelectedElementVolume));
+                OnPropertyChanged(nameof(SelectedElementWeight));
 
                 UpdateStatistics();
                 StatusText = $"Updated element: {SelectedElement.Name}";
@@ -239,11 +374,35 @@ namespace StructuralElementManager.UI.ViewModels
             TotalElementCount = allElements.Count;
             TotalVolume = allElements.Sum(e => e.Element.CalculateVolume());
         }
+        public string SelectedElementVolume
+        {
+            get
+            {
+                if (SelectedTreeItem?.Element == null) return "--";
+                return SelectedTreeItem.Element.CalculateVolume().ToString("F3");
+            }
+        }
+
+        public string SelectedElementWeight
+        {
+            get
+            {
+                if (SelectedTreeItem?.Element == null) return "--";
+                return SelectedTreeItem.Element.CalculateWeight().ToString("F2");
+            }
+        }
 
         // Property changed handler için
         partial void OnSelectedTreeItemChanged(ElementTreeItemModel? value)
         {
             OnPropertyChanged(nameof(SelectedElement));
+            OnPropertyChanged(nameof(SelectedElementVolume));  
+            OnPropertyChanged(nameof(SelectedElementWeight));
+        }
+        public void DrawFloorPlan()
+        {
+            // Canvas'ı MainWindow'dan alman gerekir
+            // Şimdilik placeholder
         }
     }
 }

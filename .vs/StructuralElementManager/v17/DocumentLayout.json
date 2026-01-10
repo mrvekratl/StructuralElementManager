@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F133BBB4-71FB-4B74-864D-00AF141506FC}|StructuralElementManager.UI\\StructuralElementManager.UI.csproj|c:\\users\\monster\\desktop\\github\\structuralelementmanager\\structuralelementmanager.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{F133BBB4-71FB-4B74-864D-00AF141506FC}|StructuralElementManager.UI\\StructuralElementManager.UI.csproj|solutionrelative:structuralelementmanager.ui\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{AA68784F-7CB4-4226-9146-900D2AED94A9}|StructuralElementManager.BusinessLayer\\StructuralElementManager.BusinessLayer.csproj|c:\\users\\monster\\desktop\\github\\structuralelementmanager\\structuralelementmanager.businesslayer\\abstract\\istructuralbeamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA68784F-7CB4-4226-9146-900D2AED94A9}|StructuralElementManager.BusinessLayer\\StructuralElementManager.BusinessLayer.csproj|solutionrelative:structuralelementmanager.businesslayer\\abstract\\istructuralbeamservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AA68784F-7CB4-4226-9146-900D2AED94A9}|StructuralElementManager.BusinessLayer\\StructuralElementManager.BusinessLayer.csproj|c:\\users\\monster\\desktop\\github\\structuralelementmanager\\structuralelementmanager.businesslayer\\abstract\\istructuralcolumnservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{AA68784F-7CB4-4226-9146-900D2AED94A9}|StructuralElementManager.BusinessLayer\\StructuralElementManager.BusinessLayer.csproj|solutionrelative:structuralelementmanager.businesslayer\\abstract\\istructuralcolumnservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,13 +23,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.UI\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "StructuralElementManager.UI\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.UI\\MainWindow.xaml",
-              "RelativeToolTip": "StructuralElementManager.UI\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-01-10T10:46:46.066Z",
+              "Title": "IStructuralBeamService.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.BusinessLayer\\Abstract\\IStructuralBeamService.cs",
+              "RelativeDocumentMoniker": "StructuralElementManager.BusinessLayer\\Abstract\\IStructuralBeamService.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.BusinessLayer\\Abstract\\IStructuralBeamService.cs",
+              "RelativeToolTip": "StructuralElementManager.BusinessLayer\\Abstract\\IStructuralBeamService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA8AAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T19:42:21.422Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IStructuralColumnService.cs",
+              "DocumentMoniker": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.BusinessLayer\\Abstract\\IStructuralColumnService.cs",
+              "RelativeDocumentMoniker": "StructuralElementManager.BusinessLayer\\Abstract\\IStructuralColumnService.cs",
+              "ToolTip": "C:\\Users\\Monster\\Desktop\\Github\\StructuralElementManager\\StructuralElementManager.BusinessLayer\\Abstract\\IStructuralColumnService.cs",
+              "RelativeToolTip": "StructuralElementManager.BusinessLayer\\Abstract\\IStructuralColumnService.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABwAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-10T19:38:13.824Z",
               "EditorCaption": ""
             }
           ]

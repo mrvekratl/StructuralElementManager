@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ColumnDto\" />
     <Folder Include="BeamDto\" />
+    <Folder Include="ColumnDto\" />
     <Folder Include="SlabDto\" />
   </ItemGroup>
 
