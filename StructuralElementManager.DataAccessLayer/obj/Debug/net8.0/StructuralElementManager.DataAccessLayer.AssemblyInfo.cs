@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("StructuralElementManager.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f6265c577b8a8267909b24ba58b9ae041883df46")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd04eea8619de73a6a6f002e7f5d6772fa806ba9")]
 [assembly: System.Reflection.AssemblyProductAttribute("StructuralElementManager.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyTitleAttribute("StructuralElementManager.DataAccessLayer")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
